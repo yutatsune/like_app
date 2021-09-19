@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = current_user.posts.find(params[:id])
+    @post = current_user.posts.find_by(params[:id])
     redirect_to root_path, alert: '権限がありません' if @post.nil?
   end
 end
